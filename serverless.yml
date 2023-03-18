@@ -5,18 +5,27 @@ provider:
   name: aws
   runtime: nodejs18.x
   stage: dev
-  region: us-east-1
+  region: ${env:AWS_COGNITO_REGION}
 
 functions:
   functionName:
-  AccountLmb:
+    AccountLmb:
+    # Environment variables need to be in OS
+    environment:
+      AWS_COGNITO_REGION: ${env:AWS_COGNITO_REGION}
+      AWS_COGNITO_CLIENT_ID: ${env:AWS_COGNITO_CLIENT_ID}
     handler: index.handler
     events:
-      - httpApi: "*"
+      # Accept any path that is added to the service
+      - http:
+          path: /{proxy+}
+          method: ANY
 
 plugins:
+  # plus to serverless work offile
   - serverless-offline
 
 custom:
+  # This is necessary because the docker to use this host
   serverless-offline:
     host: 0.0.0.0
