@@ -28,7 +28,13 @@ export AWS_SECRET_ACCESS_KEY=
 
 ```
 
+## Routes
 
+The 'endpoint' access local is `http://localhost:3000/dev/`
+
+| Context        | Resource   | Use Case             | parameters body                                         |
+| -------------- | ---------- | -------------------- | ------------------------------------------------------- |
+| Account | `/sign-up` | `POST /account/sign-up` | `{'name': 'Josh', 'email": "email@exemple.com", "password": "123456k"}` |
 
 ## Tecnologies
 
