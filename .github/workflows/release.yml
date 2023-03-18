@@ -1,4 +1,4 @@
-name: Release
+name: "Release Staging"
 
 on:
   workflow_call:
@@ -6,7 +6,6 @@ on:
       node-version:
         required: true
         type: string
-  
     secrets:
       AWS_COGNITO_REGION:
         required: true
@@ -15,12 +14,11 @@ on:
       AWS_ACCESS_KEY_ID:
         required: true
       AWS_SECRET_ACCESS_KEY:
-        required: true
+        required: true     
 
-run-name: "Release Staging"
 jobs:
   deploy:
-    runs-on: ubuntu-latest  
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -34,13 +32,10 @@ jobs:
       - name: "Install serverless framework"
         run: npm install -g serverless
 
-      - name: "print environment"
-        run: printenv
-
       - name: "deploy application"
-        run: npm run deploy
         env:
            AWS_COGNITO_REGION: ${{ secrets.AWS_COGNITO_REGION }}
            AWS_COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }}
            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}          
+           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: npm run deploy
