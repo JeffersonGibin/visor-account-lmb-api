@@ -7,12 +7,13 @@
 
 This service is part of the project for the selective process of the visor. The project is a service to create an account in the AWS Cognito.
 
-![image](https://user-images.githubusercontent.com/6215779/226136395-18577d35-db92-4001-97da-3fedc2e0ea69.png)
+
+![image](https://user-images.githubusercontent.com/6215779/226136779-4da23e37-5e9c-45d4-9856-58889906a188.png)
 
 
 ### Pipeline Flow
+![image](https://user-images.githubusercontent.com/6215779/226136793-39ed132b-cde8-4467-a091-dd3922721010.png)
 
-![image](https://user-images.githubusercontent.com/6215779/226136779-4da23e37-5e9c-45d4-9856-58889906a188.png)
 
 ## How start the project in the localhost?
 
