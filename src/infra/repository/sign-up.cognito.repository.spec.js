@@ -89,6 +89,9 @@ describe("sign-up.cognito.repository unit test", () => {
         ClientId: "1a2b3c",
         Username: "exemple@exemple.com",
         Password: "123456v",
+        ClientMetadata: {
+          preference: "CONFIRMED"
+        },
         UserAttributes: [
           {
             Name: "name",
