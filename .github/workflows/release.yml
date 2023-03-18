@@ -27,7 +27,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node-version }}
-      - run: npm ci
+      
+      - name: "Install Dependencies"
+        run: npm install      
 
       - name: serverless deploy
         uses: serverless/github-action@v3.1
