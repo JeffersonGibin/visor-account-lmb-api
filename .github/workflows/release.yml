@@ -8,24 +8,19 @@ on:
         type: string
   
     secrets:
-      AWS_COGNITO_REGION: 
-        required: true    
-      AWS_COGNITO_CLIENT_ID: 
+      AWS_COGNITO_REGION:
         required: true
-      AWS_ACCESS_KEY_ID: 
+      AWS_COGNITO_CLIENT_ID:
         required: true
-      AWS_SECRET_ACCESS_KEY: 
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
         required: true
 
 run-name: "Release Staging"
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    env:
-      AWS_COGNITO_REGION: ${{ secrets.AWS_COGNITO_REGION }}
-      AWS_COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }}
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}    
+    runs-on: ubuntu-latest  
 
     steps:
       - uses: actions/checkout@v3
@@ -44,3 +39,8 @@ jobs:
 
       - name: "deploy application"
         run: npm run deploy
+        env:
+           AWS_COGNITO_REGION: ${{ secrets.AWS_COGNITO_REGION }}
+           AWS_COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }}
+           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}          
