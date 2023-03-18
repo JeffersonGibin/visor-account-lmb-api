@@ -9,7 +9,7 @@ This service is part of the project for the selective process of the visor. The 
 
 ### Pipeline
 
-![image](https://user-images.githubusercontent.com/6215779/226109784-59eae04e-35ce-44de-aef9-5f2c00e90acf.png)
+![image](https://user-images.githubusercontent.com/6215779/226112193-bc12ac3e-d616-4fd7-a4c3-77cc1059969e.png)
 
 
 
