@@ -1,0 +1,21 @@
+name: Pipeline Workflow
+
+on:
+  push:
+    paths-ignore:
+      - "README.md"
+
+  pull_request:
+    types: [opened, synchronize]
+    paths-ignore:
+      - "README.md"
+
+jobs:
+  
+  build:
+    name: Build
+    if: ${{ github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.state == 'open') }}
+    uses: ./.github/workflows/build.yml
+    with:
+      node-version: "18"
+      
