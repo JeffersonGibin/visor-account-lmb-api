@@ -1,4 +1,4 @@
-# visor-account-lmb-api
+# Visor Account Lambda
 
 ## What is this project ?
 
