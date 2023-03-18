@@ -33,6 +33,7 @@ export AWS_SECRET_ACCESS_KEY=
 ## Tecnologies
 
 - serverless
+- javascript
 - express
 - jest
 - docker
