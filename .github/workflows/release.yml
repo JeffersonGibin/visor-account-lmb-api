@@ -23,12 +23,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ inputs.node-version }}
-
-      - name: "Install Dependencies"
-        run: npm install
+      - run: npm ci
 
       - name: serverless deploy
         uses: serverless/github-action@v3.1
