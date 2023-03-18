@@ -22,7 +22,7 @@ functions:
           method: ANY
 
 # Hide endpoint in the output deploy
-noDeploy: '1'          
+noDeploy: true     
 
 plugins:
   # plus to serverless work offile
