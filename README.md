@@ -1,4 +1,4 @@
-# Visor Account Lambda
+# Visor Account Lambda API
 
 ## What is this project ?
 
