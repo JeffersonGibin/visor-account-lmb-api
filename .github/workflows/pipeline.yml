@@ -2,11 +2,13 @@ name: Pipeline Workflow
 
 on:
   push:
+    branches: ["main"]
     paths-ignore:
       - "README.md"
 
   pull_request:
     types: [opened, synchronize]
+    branches: ["main"]
     paths-ignore:
       - "README.md"
 
