@@ -1,7 +1,12 @@
-name: Deploy
+name: Release
 
 on:
   workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+  
     secrets:
       AWS_COGNITO_REGION: 
         required: true    
@@ -14,14 +19,27 @@ on:
 
 run-name: "Release Staging"
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
-      - name: "Install Dependencies"
-        run: npm install
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: .
+          node-version: ${{ inputs.node-version }}
+          key: ${{ env.cache-name }}${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ env.cache-name }}
 
+      - name: "Install Dependencies"
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+        run: npm install
+        
       - name: serverless deploy
         uses: serverless/github-action@v3.1
         with:
