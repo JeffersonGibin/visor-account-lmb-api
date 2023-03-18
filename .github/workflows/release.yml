@@ -29,12 +29,13 @@ jobs:
           node-version: ${{ inputs.node-version }}
       
       - name: "Install Dependencies"
-        run: npm install      
+        run: npm install
 
-      - name: serverless deploy
-        uses: serverless/github-action@v3.1
-        with:
-          args: deploy
+      - name: "Install serverless framework"
+        run: npm install -g serverless
+
+      - name: "deploy application"
+        run: npm run deploy
         env:
          AWS_COGNITO_REGION: ${{ secrets.AWS_COGNITO_REGION }} 
          AWS_COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }} 
