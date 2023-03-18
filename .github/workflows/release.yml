@@ -21,6 +21,7 @@ run-name: "Release Staging"
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    container: node:18-alpine3.17
 
     steps:
       - uses: actions/checkout@v3
@@ -39,7 +40,7 @@ jobs:
       - name: "Install Dependencies"
         if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: npm install
-        
+
       - name: serverless deploy
         uses: serverless/github-action@v3.1
         with:

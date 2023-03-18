@@ -11,6 +11,7 @@ run-name: "Build Staging"
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: node:18-alpine3.17
 
     steps:
       - uses: actions/checkout@v3
