@@ -12,7 +12,7 @@ This service is part of the project for the selective process of the visor. The 
 
 ### Pipeline Flow
 
-![image](https://user-images.githubusercontent.com/6215779/226135357-71ecbe2b-2f5c-4041-8655-235c6a281cbc.png)
+![image](https://user-images.githubusercontent.com/6215779/226136779-4da23e37-5e9c-45d4-9856-58889906a188.png)
 
 ## How start the project in the localhost?
 
