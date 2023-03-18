@@ -20,6 +20,7 @@ This service is part of the project for the selective process of the visor. The 
 ## Tecnologies
 
 - serverless
+- javascript
 - express
 - jest
 - docker
