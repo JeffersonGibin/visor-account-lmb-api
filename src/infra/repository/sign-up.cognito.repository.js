@@ -43,6 +43,9 @@ export class SignUpCognitoRepository {
       ClientId: this.#cognitoClientId,
       Username: dataUser.email,
       Password: dataUser.password,
+      ClientMetadata: {
+        preference: "CONFIRMED"
+      },
       UserAttributes: [
         {
           Name: "name",
