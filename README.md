@@ -1,3 +1,6 @@
+[![Pipeline Workflow](https://github.com/JeffersonGibin/visor-account-lmb-api/actions/workflows/pipeline.yml/badge.svg)](https://github.com/JeffersonGibin/visor-account-lmb-api/actions/workflows/pipeline.yml)
+
+
 # Visor Account Lambda API
 
 ## What is this project ?
