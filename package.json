@@ -9,7 +9,8 @@
     "local": "sls offline start --reloadHandler",
     "deploy": "serverless deploy",
     "unit:test": "jest --verbose --maxWorkers 2 ./src/ --",
-    "unit:test:watch": "jest --watch"
+    "unit:test:watch": "jest --watch",
+    "prepush": "npm run lint && npm run unit:test"
   },
   "engines": {
     "node": "18.x.x"
