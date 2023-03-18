@@ -25,6 +25,8 @@ jobs:
     uses: ./.github/workflows/release.yml
     needs: build
     secrets:
+      AWS_COGNITO_REGION: ${{ secrets.AWS_COGNITO_REGION }} 
+      AWS_COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }} 
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
