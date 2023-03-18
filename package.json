@@ -7,7 +7,7 @@
   "scripts": {
     "local": "sls offline start --reloadHandler",
     "deploy": "serverless deploy",
-    "unit:test": "jest --verbose --maxWorkers 2 ./src/app ./src/core ./src/infra --",
+    "unit:test": "jest --verbose --maxWorkers 2 ./src/ --",
     "unit:test:watch": "jest --watch"
   },
   "engines": {
