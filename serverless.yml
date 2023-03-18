@@ -7,10 +7,6 @@ provider:
   stage: dev
   region: ${env:AWS_COGNITO_REGION}
 
-variables:
-  # Hide endpoint in the output deploy
-  hideStackOutputs: '1'
-
 functions:
   functionName:
     AccountLmb:
@@ -24,6 +20,9 @@ functions:
       - http:
           path: /{proxy+}
           method: ANY
+
+# Hide endpoint in the output deploy
+noDeploy: true     
 
 plugins:
   # plus to serverless work offile
