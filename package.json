@@ -8,7 +8,6 @@
     "local": "sls offline start --reloadHandler",
     "deploy": "serverless deploy",
     "unit:test": "jest --verbose --maxWorkers 2 ./src/app ./src/core ./src/infra --",
-    "test": "jest",
     "unit:test:watch": "jest --watch"
   },
   "engines": {
