@@ -14,6 +14,7 @@ functions:
     environment:
       AWS_COGNITO_REGION: ${env:AWS_COGNITO_REGION}
       AWS_COGNITO_CLIENT_ID: ${env:AWS_COGNITO_CLIENT_ID}
+      AWS_COGNITO_POOL_ID: ${env:AWS_COGNITO_POOL_ID}
     handler: index.handler
     events:
       # Accept any path that is added to the service
