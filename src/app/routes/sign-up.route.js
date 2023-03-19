@@ -9,6 +9,10 @@ export const signUpRoute = (applications) => {
     const signUpRepository = new SignUpCognitoRepository({
       // eslint-disable-next-line no-undef
       region: process.env.AWS_COGNITO_REGION,
+
+      // eslint-disable-next-line no-undef
+      userPoolId: process.env.AWS_COGNITO_POOL_ID,
+
       // eslint-disable-next-line no-undef
       clientId: process.env.AWS_COGNITO_CLIENT_ID,
     });
