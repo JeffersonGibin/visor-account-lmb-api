@@ -12,11 +12,11 @@ on:
       AWS_COGNITO_POOL_ID:
         required: true
       AWS_COGNITO_CLIENT_ID:
-        required: true
+        required: true        
       AWS_API_GATEWAY_ID:
         required: true
       AWS_API_GATEWAY_RESOURCE_ID:
-        required: true        
+        required: true
       AWS_ACCESS_KEY_ID:
         required: true
       AWS_SECRET_ACCESS_KEY:
