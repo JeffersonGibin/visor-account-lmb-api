@@ -3,35 +3,52 @@ import AWS from "aws-sdk";
 export class SignUpCognitoRepository {
   #cognito;
   #cognitoClientId;
+  #userPoolId;
 
   /**
    * @param {Object} inputArgs
    */
   constructor(inputArgs) {
-    const { clientId, region } = inputArgs;
+    const { clientId, userPoolId, region } = inputArgs;
 
-    this.#validateInputs({ clientId, region });
+    this.#validateInputs({ clientId, userPoolId, region });
 
     this.#cognitoClientId = clientId;
+    this.#userPoolId = userPoolId;
     this.cognito = new AWS.CognitoIdentityServiceProvider({
       region: region,
     });
   }
 
   #validateInputs(args) {
-    const { clientId, region } = args;
-
-    if (!region) {
-      throw new Error("The field region is required");
-    }
+    const { clientId, userPoolId, region } = args;
 
     if (!clientId) {
       throw new Error("The field clientId is required");
     }
 
-    if (typeof region !== "string" || typeof clientId !== "string") {
+    if (!userPoolId) {
+      throw new Error("The field userPoolId is required");
+    }
+
+    if (!region) {
+      throw new Error("The field region is required");
+    }
+
+    if (typeof clientId !== "string" || typeof userPoolId !== "string" || typeof region !== "string") {
       throw new Error("The values to need be a string");
     }
+  }
+
+  /**
+   * Confirm user in the cognito
+   * @param {string} email
+   */
+  async #confirmUser(email){
+    return this.cognito.adminConfirmSignUp({
+      UserPoolId: this.#userPoolId,
+      Username: email,
+    }).promise();
   }
 
   /**
@@ -43,9 +60,6 @@ export class SignUpCognitoRepository {
       ClientId: this.#cognitoClientId,
       Username: dataUser.email,
       Password: dataUser.password,
-      ClientMetadata: {
-        preference: "CONFIRMED"
-      },
       UserAttributes: [
         {
           Name: "name",
@@ -59,6 +73,9 @@ export class SignUpCognitoRepository {
     };
 
     const response = await this.cognito.signUp(paramters).promise();
+    
+    
+    await this.#confirmUser(dataUser.email)
 
     if (response.UserSub) {
       return true;
