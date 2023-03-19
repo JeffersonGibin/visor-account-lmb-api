@@ -34,8 +34,11 @@ jobs:
 
       - name: "deploy application"
         env:
-           AWS_COGNITO_REGION: ${{ secrets.AWS_COGNITO_REGION }}
-           AWS_COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }}
-           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_COGNITO_REGION: ${{ secrets.AWS_COGNITO_REGION }}
+          AWS_COGNITO_CLIENT_ID: ${{ secrets.AWS_COGNITO_CLIENT_ID }}
+          AWS_COGNITO_POOL_ID: ${{ secrets.AWS_COGNITO_POOL_ID }}
+          AWS_API_GATEWAY_ID: ${{ secrets.AWS_API_GATEWAY_ID}}
+          AWS_API_GATEWAY_RESOURCE_ID: ${{ secrets.AWS_API_GATEWAY_RESOURCE_ID }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: npm run deploy
