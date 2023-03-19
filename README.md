@@ -36,6 +36,8 @@ export AWS_SECRET_ACCESS_KEY=
 
 ```
 
+**Note: Don't necessay confirm the user. The flow is forced when the user is created.**
+
 ## Routes
 
 The 'endpoint' access local is `http://localhost:3000/dev/`
