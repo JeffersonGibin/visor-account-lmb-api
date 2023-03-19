@@ -1,7 +1,7 @@
 import serverless from "serverless-http";
 import express from "express";
 import { RoutesHandler } from "./src/handler/routes-handler.js";
-import { signInRoute } from "./src/app/routes/sign-in.route.js";
+import { signUpRoute } from "./src/app/routes/sign-up.route.js";
 
 const app = express();
 const authRouter = express.Router();
@@ -13,7 +13,7 @@ authRouter.use(express.json());
 app.use("/account", authRouter);
 
 // router list
-const routes = [signInRoute];
+const routes = [signUpRoute];
 
 // apply routes
 new RoutesHandler(authRouter, routes).apply();
