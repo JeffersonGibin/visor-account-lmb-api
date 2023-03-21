@@ -2,8 +2,12 @@ import serverless from "serverless-http";
 import express from "express";
 import { RoutesHandler } from "./src/handler/routes-handler.js";
 import { signUpRoute } from "./src/app/routes/sign-up.route.js";
+import cors from "cors";
 
 const app = express();
+// Apply cors
+app.use(cors());
+
 const authRouter = express.Router();
 
 // Parse to Json
