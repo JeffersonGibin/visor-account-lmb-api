@@ -21,7 +21,7 @@ export const signUpRoute = (applications) => {
     const response = await instanceUseCase.execute();
 
     if (!response.code) {
-      res.status(200).json(response);
+      res.status(201).json(response);
       return;
     }
 
