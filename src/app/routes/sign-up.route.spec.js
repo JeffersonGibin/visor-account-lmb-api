@@ -49,6 +49,6 @@ describe("sign-up.route.spec unit test", () => {
     };
 
     const response = await request(app).post("/sign-up").send(userData);
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(400);
   });
 });

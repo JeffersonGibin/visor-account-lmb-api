@@ -33,12 +33,16 @@ export class SignUpUseCase {
       if (exceptions.includes(exceptionCode)) {
         return {
           status: "ERROR",
+          code: exceptionCode,
           message: messageError,
         };
       }
 
+      console.log("[SignUpUseCase]", error);
+
       return {
         status: "ERROR",
+        code: "GenericValidationError",
         message: "Validation Error",
       };
     }

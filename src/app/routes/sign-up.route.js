@@ -18,11 +18,19 @@ export const signUpRoute = (applications) => {
     });
 
     const instanceUseCase = new SignUpUseCase(signUpRepository, userDTO);
-    const responseToRoute = await instanceUseCase.execute();
+    const response = await instanceUseCase.execute();
 
-    const httpStatusCode = responseToRoute.status === "SUCCESS" ? 201 : 401;
-    return res.status(httpStatusCode).json({
-      message: responseToRoute.message,
-    });
+    if (!response.code) {
+      res.status(201).json(response);
+      return;
+    }
+
+    if (response.code === "NotAuthorizedException") {
+      res.status(401).json(response);
+
+      return;
+    }
+
+    return res.status(400).json(response);
   });
 };
