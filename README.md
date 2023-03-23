@@ -5,7 +5,7 @@
 
 ## What is this project ?
 
-This service is part of the project for the selective process of the visor. The project is a service to create an account in the AWS Cognito.
+This service is part of the project for the selective process of the visor. The project is a service to create an account in the AWS Cognito.For more information about the project, [visit here](https://github.com/JeffersonGibin/visor-challenge)
 
 
 ![image](https://user-images.githubusercontent.com/6215779/226136779-4da23e37-5e9c-45d4-9856-58889906a188.png)
